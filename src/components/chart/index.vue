@@ -1,21 +1,13 @@
 <template>
   <div class="chart">
-    <p>{{'fandepeng'|fdpupcase}}</p>
-    <el-button type="primary">默认按钮</el-button>
-    <button @click="getstate()">获取state</button>
-    <button @click="mutatonsstate('987654')">muations-state</button>
-    <!--<button @click="actionstate()">actions-state</button>
-    <button @click="gethandstate()">手动-state</button>-->
-    <h1>{{name}}图表</h1>
-    {{otherInfo}}
-    <button @click="modify">修改其他用户信息</button>
-    <bar-chart :data="data" class="test"></bar-chart>
+   <!-- <bar-chart :data="data" class="test"></bar-chart>-->
+    <line-chart ></line-chart>
   </div>
-
 </template>
 
 <script>
 import BarChart from '../charts/bar'
+import LineChart from '../charts/line'
 import {mapGetters, mapMutations, mapActions} from 'vuex'
 // Action 通过 store.dispatch 方法触发：
 // this.$store.commit('xxx')
@@ -30,22 +22,13 @@ export default {
         xAxis: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
         series: {
           name: '销量',
-          type: 'bar',
+          type: 'line',
           data: [5, 20, 36, 10, 10, 20]
         }
       }
     }
   },
   methods: {
-    getstate () {
-      console.log(this.token, this.loginState, this.userInfo)
-    },
-    mutatonsstate (parms) {
-      this.setToken(parms)
-    },
-    modify () {
-      this.MusetOtherUserInfo('我已经修改了其他用户信息')
-    },
     ...mapActions(['setToken', 'setLoginState', 'setUserInfo', 'setOtherUserInfo']),
     ...mapMutations({MusetToken: 'SET_TOKEN', MusetLoginState: 'loginState', MusetUserInfo: 'SET_USERINFO', MusetOtherUserInfo: 'SET_OTHERUSERINFO'})
   },
@@ -56,7 +39,8 @@ export default {
     console.log('created', this.$store.state.user)
   },
   components: {
-    BarChart
+    BarChart,
+    LineChart
   },
   beforeRouteEnter (to, from, next) {
     // 在渲染该组件的对应路由被 confirm 前调用
@@ -86,7 +70,6 @@ export default {
   .test{
     width: 700px;
     height: 500px;
-    //background-color: #0ABF74;
   }
 
 </style>

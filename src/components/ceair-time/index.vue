@@ -1,5 +1,7 @@
 <template>
-    $END$
+     <div class="timers">
+       <span>{{new Date() |dateTime({onlyD:true})}}</span>
+     </div>
 </template>
 
 <script>
@@ -8,6 +10,9 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped type="text/css" lang="scss" rel="stylesheet/scss">
+   .timers{
+      position: absolute;
+      right: 0px;
+   }
 </style>

@@ -4,14 +4,15 @@ import store from '../store'
 
 let util = {}
 
-const ajaxUrl = process.env.NODE_ENV === 'development' ? 'http://xxx.xxx.xxx.xxx:(port)' : 'http://xxx.xxx.xxx.xxx:(port)'
+// const ajaxUrl = process.env.NODE_ENV === 'development' ? 'http://xxx.xxx.xxx.xxx:(port)' : 'http://xxx.xxx.xxx.xxx:(port)'
+const ajaxUrl = process.env.NODE_ENV === 'development' ? 'https://jsonplaceholder.typicode.com' : 'https://jsonplaceholder.typicode.com'
 
 util.ajax = axios.create({
   baseURL: ajaxUrl,
   timeout: 30000
 })
 util.baseURL = util.ajax.defaults.baseURL
-// 请求拦截
+/* // 请求拦截
 util.ajax.interceptors.request.use((config) => {
   let token = store.state.user.token || JSON.parse(VueCookies.get('token')) || ''
   if (token) {
@@ -40,6 +41,6 @@ util.ajax.interceptors.response.use((response) => {
     // 过滤请求响应的错误信息
   }
   return Promise.reject(err.response)
-})
+}) */
 
 export default util

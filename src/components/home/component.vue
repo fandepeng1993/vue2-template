@@ -1,6 +1,6 @@
 <template>
     <div class="self-component">
-      <div>asdasdafdsdfsdf</div>
+      <div>asdasdasdasdas</div>
     </div>
 </template>
 
@@ -9,14 +9,18 @@ export default {
   name: 'self-component',
   props: {
     myobject: {
-      type: Object
+      type: String
     }
   },
   data () {
     return {}
   },
-  created(){
-    console.log(12312312)
+  created () {
+    console.log(this.myobject)
+    setTimeout(() => {
+      this.myobject = '123'
+      console.log(this.myobject)
+    }, 5000)
   }
 }
 </script>

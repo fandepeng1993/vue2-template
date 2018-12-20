@@ -2,12 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import home from '../components/home/index'
 import chart from '../components/chart'
-import code404 from '../components/code404'
-
+// import code404 from '../components/code404'
+import system from '../components/system'
+import stystemInfo from '../components/ceair-stystem-info'
 Vue.use(Router)
 
 const router = new Router({
   mode: 'history',
+  /* base: '/', */
   routes: [
     {
       path: '/',
@@ -25,8 +27,7 @@ const router = new Router({
     },
     {
       path: '*',
-      name: 'code404',
-      component: code404
+      redirect: '/'
     }
   ]
 })

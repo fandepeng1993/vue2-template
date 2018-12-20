@@ -52,7 +52,7 @@ Vue.use(ElementUI, {size: 'small'})
 
 Vue.config.productionTip = true
 
-// 取消Vue所以的日志与警告
+// 取消Vue所有的日志与警告
 Vue.config.silent = true
 
 new Vue({

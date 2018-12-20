@@ -15,11 +15,11 @@ class VFilter {
       if (typeof filter !== 'object') {
         return value
       }
-      let d = new Date(value * 1000)
+      let d = value
       let year = d.getFullYear()
       let month = '0' + (d.getMonth() + 1)
       let day = '0' + d.getDate()
-      let dateArr = [year, '/', month.substr(-2, 2), '/', day.substr(-2, 2)]
+      let dateArr = [year, '年', month.substr(-2, 2), '月', day.substr(-2, 2),'日']
       if (filter.onlyD) {
         return dateArr.join('')
       }

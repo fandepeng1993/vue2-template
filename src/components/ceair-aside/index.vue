@@ -59,8 +59,9 @@ export default {
   },
   methods: {
     activetab (index) {
-      if(index=='1-1') {
-        console.log(111)
+      if (index == '1-1') {
+        // 例子
+        this.$router.push({path:'/system/system1'})
       }
     }
   }
