@@ -5,7 +5,12 @@ import chart from '../components/chart'
 // import code404 from '../components/code404'
 import system from '../components/system'
 import stystemInfo from '../components/ceair-stystem-info'
+const routerPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return routerPush.call(this, location).catch(error=> error)
+}
 Vue.use(Router)
+
 
 const router = new Router({
   mode: 'history',
